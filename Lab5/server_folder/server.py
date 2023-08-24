@@ -91,12 +91,14 @@ def main():
     send_thread = threading.Thread(target=send_file)
     send_thread.start()
 
+    print_msg(f"[ACTIVE CONNECTIONS] {threading.active_count() - 2}")
+
     while True:
         conn, addr = server.accept()
         clients.append({"conn": conn, "addr": addr})
         thread = threading.Thread(target=handle_client, args=(conn,addr))
         thread.start()
-        print_msg(f"[ACTIVE CONNECTIONS] {threading.active_count() - 1}")
+        print_msg(f"[ACTIVE CONNECTIONS] {threading.active_count() - 2}")
 
 if __name__=="__main__":
     main()
