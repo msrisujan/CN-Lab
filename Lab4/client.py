@@ -44,9 +44,9 @@ def main():
         if msg == DISCONNECT_MESSAGE:
             connected = False
 
-        msg = client.recv(SIZE).decode(FORMAT)
-        if msg:
-            print(f"[SERVER] {msg}")
+        # msg = client.recv(SIZE).decode(FORMAT)
+        # if msg:
+        #     print(f"[SERVER] {msg}")
 
     print(f"[DISCONNECTED] Client disconnected from {IP}:{PORT}")
     client.close()

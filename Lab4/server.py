@@ -35,7 +35,7 @@ def send_msg(conn, addr):
             print(f"\r[DISCONNECT CONNECTION] {addr} disconnected.")
         else:
             addrs =(msg.split(':')[0], int(msg.split(':')[1]))
-            msg = msg.split(':')[2]
+            msg = str(msg.split(':')[2:])
             msg = f"[{addr}] {msg}"
             for client in clients:
                 if client["addr"] == addrs:
