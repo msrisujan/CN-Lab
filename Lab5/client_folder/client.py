@@ -27,7 +27,7 @@ def receive_file(conn,addr):
     connected = True
     while connected:
         file_name = conn.recv(SIZE).decode(FORMAT)
-        if file_name == DISCONNECT_MSG:
+        if not file_name or file_name == DISCONNECT_MSG:    
             connected = False
             print_msg(f"[DISCONNECTED] {addr} disconnected.")
             break
