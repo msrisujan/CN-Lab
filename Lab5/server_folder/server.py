@@ -64,6 +64,12 @@ def send_file():
         addr_input = input_msg("Enter (ip port): ")
         addr_input = (addr_input.split()[0], int(addr_input.split()[1]))
         file_name = input_msg("Enter the file name: ")
+        if file_name == DISCONNECT_MSG:
+            for client in clients:
+                if client["addr"] == addr_input:
+                    client["conn"].send(file_name.encode(FORMAT))
+                    clients.remove(client)
+                    break
         file = open(file_name,"r")
         data = file.read()
         file.close()

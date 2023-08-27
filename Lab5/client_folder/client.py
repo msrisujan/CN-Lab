@@ -61,6 +61,7 @@ def main():
     while connected:
         file_name = input_msg("Enter the file name: ")
         if file_name == DISCONNECT_MSG:
+            client.send(file_name.encode(FORMAT))
             connected = False
             break
         client.send(f"f:{file_name}".encode(FORMAT))
