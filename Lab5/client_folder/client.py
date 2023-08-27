@@ -4,7 +4,7 @@ import readline
 import time
 
 IP = socket.gethostbyname(socket.gethostname())
-PORT = 5566
+PORT = 5567
 ADDR = (IP, PORT)
 SIZE = 1024
 FORMAT = "utf-8"
@@ -30,6 +30,7 @@ def receive_file(conn,addr):
         if file_name == DISCONNECT_MSG:
             connected = False
             print_msg(f"[DISCONNECTED] {addr} disconnected.")
+            break
         else:
             msg_type = file_name.split(":")[0]
             msg = file_name.split(":")[1]

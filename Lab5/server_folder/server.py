@@ -4,7 +4,7 @@ import readline
 import time
 
 IP = socket.gethostbyname(socket.gethostname())
-PORT = 5566
+PORT = 5567
 ADDR = (IP, PORT)
 SIZE = 1024
 FORMAT = "utf-8"
