@@ -36,6 +36,10 @@ def receive_file(conn,addr):
     while connected:
         file_name = conn.recv(SIZE).decode()
 
+        if not file_name:
+            print("Disconnected from server.")
+            break
+
         type = file_name.split(":")[0]
         file = file_name.split(":")[1]
         if type == "a":
@@ -70,13 +74,16 @@ def main():
     while True:
         msg = input_msg("(IP PORT):")
         if msg == DISCONNECT_MESSAGE:
-            print_msg(f"[DISCONNECTED] Disconnected from {IP}:{PORT}")
+            print(f"[DISCONNECTED] Disconnected from {IP}:{PORT}")
             client.send(msg.encode())
             break
         else:
             client.send(msg.encode())
+        
         file_name = input_msg("File name:")
+
         client.send(f"f:{file_name}".encode())
+
 
         with open(file_name, "rb") as f:
             print_msg(f"[SENDING] Sending {file_name}...")

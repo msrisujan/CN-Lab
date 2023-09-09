@@ -68,9 +68,17 @@ def send_file(conn, addr):
             else:
                 print_msg(f"[ERROR] Cannot disconnect {addr}")
             print_msg(f"\r[DISCONNECT CONNECTION] {addr} disconnected.")
+            print_msg(f"[ACTIVE CONNECTIONS] {threading.active_count() - 2}")
             break
         
         addrs =(ip_port.split(' ')[0], int(ip_port.split(' ')[1]))
+
+        for client in clients:
+            if client["addr"] == addrs:
+                break
+        else:
+            conn.send(f"e: {addrs} not found.".encode())
+            continue
         
         file_name = conn.recv(SIZE).decode()
         send_msg(addrs,file_name)
