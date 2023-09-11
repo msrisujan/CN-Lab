@@ -83,6 +83,7 @@ def main():
         file_name = input_msg("File name:")
 
         client.send(f"f:{file_name}".encode())
+        time.sleep(0.1)
 
 
         with open(file_name, "rb") as f:
