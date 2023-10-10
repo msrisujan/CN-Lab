@@ -114,7 +114,7 @@ def game_entry():
 
     def end_tk():
         start_tk.destroy()
-        disconnect(client, "client")
+        disconnect(client)
         
 
     start_tk = tk.Tk()
