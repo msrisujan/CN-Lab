@@ -14,7 +14,7 @@ import threading
 import time
 
 IP = socket.gethostbyname(socket.gethostname())
-PORT = 5567
+PORT = 5566
 ADDR = (IP, PORT)
 SIZE = 1024
 DISCONNECT_MESSAGE = "!DISCONNECT"
