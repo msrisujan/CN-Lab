@@ -127,6 +127,7 @@ def game_entry():
     mac_entry.grid(row=0, column=1)
 
     mac_entry.insert(0, get_mac_address())
+    # mac_entry.config(state="readonly")
 
     # Create a label and entry widget for payment amount
     amount_label = tk.Label(start_tk, text="Amount (100/min):")
