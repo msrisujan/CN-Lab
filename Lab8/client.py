@@ -270,7 +270,7 @@ def main():
         if player == -1:
             print("[SERVER] Server full.")
             screen.blit(
-                font.render("Server full.", True, WHITE), 
+                font.render("Server full.. Wait...", True, WHITE), 
                 (gs.W//2-80,gs.H//2)
             )
             pygame.display.flip()
